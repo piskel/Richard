@@ -107,9 +107,9 @@ class Richard:
         filter_list = []
         str_price_range = ""
         if price_range is not None and type(price_range) is tuple:
-            str_price_range += Richard.FILTER_PARAM_PRICE_RANGE_MIN + "=" + min(price_range)
+            str_price_range += Richard.FILTER_PARAM_PRICE_RANGE_MIN + "=" + str(min(price_range))
             str_price_range += "&"
-            str_price_range += Richard.FILTER_PARAM_PRICE_RANGE_MAX + "=" + max(price_range)
+            str_price_range += Richard.FILTER_PARAM_PRICE_RANGE_MAX + "=" + str(max(price_range))
             filter_list.append(str_price_range)
 
         str_condition = ""

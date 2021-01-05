@@ -2,7 +2,7 @@ import msvcrt
 
 from rich.live import Live
 from rich.panel import Panel
-
+from richard import Richard
 from richard_cli import RichardCLI
 
 
@@ -20,7 +20,13 @@ def get_input():
 r_cli = RichardCLI()
 r_cli.init_table_articles()
 pan = Panel(r_cli.table_articles)
-r_cli.richard.load_articles("seiko", 20)
+
+filter_str = r_cli.richard.build_filter_string(
+    price_range=(0.5, 50),
+    condition=[Richard.FILTER_CONDITION_USED, Richard.FILTER_CONDITION_ANTIQUE],
+    offer_type=[Richard.FILTER_OFFER_TYPE_AUCTION]
+)
+r_cli.richard.load_articles("seiko", 20, filter_str=filter_str)
 
 # for article in r_cli.richard.article_list:
 #     print(article.article_title)
