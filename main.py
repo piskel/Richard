@@ -34,7 +34,6 @@ r_cli.richard.load_articles("seiko", 20)
 
 with Live(r_cli.table_articles, auto_refresh=True, transient=True) as live:
     for article in r_cli.richard.article_list:
-        article.update()
         r_cli.add_article_to_table_articles(article)
         live.update(pan)
 
